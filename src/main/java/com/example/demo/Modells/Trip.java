@@ -3,7 +3,34 @@ package com.example.demo.Modells;
 import javax.persistence.*;
 
 @Entity
+@Table
 public class Trip {
+    public Trip(long tripid, String startTime, String endTime, String toStation, String fromStation) {
+        Tripid = tripid;
+        StartTime = startTime;
+        EndTime = endTime;
+        ToStation = toStation;
+        FromStation = fromStation;
+    }
+
+    public Trip(String startTime, String endTime, String toStation, String fromStation) {
+        StartTime = startTime;
+        EndTime = endTime;
+        ToStation = toStation;
+        FromStation = fromStation;
+    }
+
+    @Override
+    public String toString() {
+        return "Trip{" +
+                "Tripid=" + Tripid +
+                ", StartTime='" + StartTime + '\'' +
+                ", EndTime='" + EndTime + '\'' +
+                ", ToStation='" + ToStation + '\'' +
+                ", FromStation='" + FromStation + '\'' +
+                '}';
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Tripid;
@@ -16,7 +43,9 @@ public class Trip {
     @Column
     private String FromStation;
 
+    public Trip() {
 
+    }
     public long getTripid() {
         return Tripid;
     }
