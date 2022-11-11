@@ -6,6 +6,12 @@ import javax.persistence.*;
 @Table
 public class AdminModel {
 
+    public AdminModel(Long id, String username, String password) {
+        this.id = id;
+        Username = username;
+        Password = password;
+    }
+
     @Id
     @SequenceGenerator(
             name = "name",
@@ -16,6 +22,12 @@ public class AdminModel {
             strategy = GenerationType.SEQUENCE ,
             generator = "name"
     )
+    private Long id;
+
+    public AdminModel(Long id) {
+        this.id = id;
+    }
+
     @Column
     private String Username;
 

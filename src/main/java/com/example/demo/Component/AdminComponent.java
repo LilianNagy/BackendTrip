@@ -6,27 +6,29 @@ import com.example.demo.Modells.AdminModel;
 import com.example.demo.Modells.Station;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+@Service
 public class AdminComponent {
-    private final AdminDataAccess data;
+    private  AdminDataAccess data;
 
     @Autowired
     public AdminComponent(AdminDataAccess data) {
+
         this.data = data;
     }
 
 
     public void Login(AdminModel adminModel) {
-        //if
-        //adminModell.getUsername()== data.findBy((<adminModell.getUsername())
+        data.save(adminModel);
 
     }
 
     public void Register(AdminModel adminModel) {
-        //data.save(adminModel);
+        data.save(adminModel);
+      System.out.print("Registered");
 
     }
 

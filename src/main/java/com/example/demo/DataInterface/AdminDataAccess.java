@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface AdminDataAccess extends JpaRepository<Admin,Long> {
+public interface AdminDataAccess extends JpaRepository<AdminModel,Long> {
 
 
 }

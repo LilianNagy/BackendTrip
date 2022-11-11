@@ -8,19 +8,19 @@ public class Station{
 
     @Id
     @SequenceGenerator(
-            name = "name",
-            sequenceName = "name",
+            name = "station_seq",
+            sequenceName = "station_seq",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE ,
-            generator = "name"
+            generator = "station_seq"
     )
-    private long id;
+    private Long id;
     @Column
     private String name;
 
-    public Station(long id, String name) {
+    public Station(Long id, String name) {
         this.id=id;
         this.name=name;
     }
@@ -37,11 +37,11 @@ public class Station{
         this.name = name;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

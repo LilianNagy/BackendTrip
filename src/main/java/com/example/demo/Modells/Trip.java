@@ -5,7 +5,9 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Trip {
-    public Trip(long tripid, String startTime, String endTime, String toStation, String fromStation) {
+
+
+    public Trip(Long tripid, String startTime, String endTime, String toStation, String fromStation) {
         Tripid = tripid;
         StartTime = startTime;
         EndTime = endTime;
@@ -13,12 +15,7 @@ public class Trip {
         FromStation = fromStation;
     }
 
-    public Trip(String startTime, String endTime, String toStation, String fromStation) {
-        StartTime = startTime;
-        EndTime = endTime;
-        ToStation = toStation;
-        FromStation = fromStation;
-    }
+
 
     @Override
     public String toString() {
@@ -32,8 +29,16 @@ public class Trip {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Tripid;
+    @SequenceGenerator(
+            name = "Trip_sequence",
+            sequenceName = "Trip_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE ,
+            generator = "Trip_sequence"
+    )
+    private Long Tripid;
     @Column
     private String StartTime;
     @Column
@@ -46,43 +51,43 @@ public class Trip {
     public Trip() {
 
     }
-    public long getTripid() {
+    public Long getTripid() {
         return Tripid;
     }
 
-    public void setTripid(long tripid) {
-        Tripid = tripid;
+    public void setTripid(Long tripid) {
+        this.Tripid = tripid;
     }
 
     public String getStartTime() {
         return StartTime;
     }
 
-    public void setStartTime(String startTime) {
-        StartTime = startTime;
+    public void setStartTime(String StartTime) {
+        this.StartTime = StartTime;
     }
 
     public String getEndTime() {
         return EndTime;
     }
 
-    public void setEndTime(String endTime) {
-        EndTime = endTime;
+    public void setEndTime(String EndTime) {
+        this.EndTime = EndTime;
     }
 
     public String getToStation() {
         return ToStation;
     }
 
-    public void setToStation(String toStation) {
-        ToStation = toStation;
+    public void setToStation(String ToStation) {
+        this.ToStation = ToStation;
     }
 
     public String getFromStation() {
         return FromStation;
     }
 
-    public void setFromStation(String fromStation) {
-        FromStation = fromStation;
+    public void setFromStation(String FromStation) {
+        FromStation = FromStation;
     }
 }

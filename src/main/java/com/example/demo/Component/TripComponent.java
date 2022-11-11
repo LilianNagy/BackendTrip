@@ -5,10 +5,13 @@ import com.example.demo.Modells.Station;
 import com.example.demo.Modells.Trip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
-@Component
+@Service
 public class TripComponent {
     private final TripDataAcces tripdata;
 
@@ -22,6 +25,23 @@ public class TripComponent {
     }
 
     public void addNewTrip(Trip trip) {
+
+        tripdata.save(trip);
         System.out.println(trip);
+        System.out.print("added new trip");
+    }
+    public void deleteTrip(Long tripId) {
+
+        tripdata.deleteById(tripId);
+        System.out.print("deleted");
+    }
+
+    @Transactional
+    public void updateTrip(Long tripId, String NewFromStation) {
+        Trip trip = tripdata.findById(tripId).orElseThrow(() -> new IllegalStateException( " does not exist"));
+       trip.setFromStation(NewFromStation);
+
+        System.out.print("updated");
+
     }
 }
