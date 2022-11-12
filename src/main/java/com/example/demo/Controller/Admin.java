@@ -42,13 +42,13 @@ public class Admin {
 
     }
 
-    @DeleteMapping(path = "/deleteStation{stationId}")
+    @DeleteMapping(path = "/deleteStation/{stationId}")
     public void deleteStation(@PathVariable("stationId") Long stationId) {
 
         stationComp.deleteStation(stationId);
     }
 
-    @PutMapping(path = "/updateStation{stationId}")
+    @PutMapping(path = "/updateStation/{stationId}")
     public void updateStation(
             @PathVariable("stationId") Long stationId,
             @RequestParam(required = false) String name
@@ -68,13 +68,13 @@ public class Admin {
 
     }
 
-    @DeleteMapping(path = "/deleteTrip{tripId}")
+    @DeleteMapping(path = "/deleteTrip/{tripId}")
     public void deleteTrip(@PathVariable("tripId") Long tripId) {
 
         tripcomp.deleteTrip(tripId);
     }
 
-    @PutMapping(path = "/updateTrip{tripId}")
+    @PutMapping(path = "/updateTrip/{tripId}")
     public void updateTrip
     (
             @PathVariable("tripId") Long tripId,
