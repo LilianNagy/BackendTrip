@@ -6,10 +6,11 @@ import javax.persistence.*;
 @Table
 public class AdminModel {
 
-    public AdminModel(Long id, String username, String password) {
+    public AdminModel(Long id, String username, String password , String email)  {
         this.id = id;
         Username = username;
         Password = password;
+        Email = email;
     }
 
     @Id
@@ -31,9 +32,21 @@ public class AdminModel {
     @Column
     private String Username;
 
-    public AdminModel(String username, String password) {
+    @Column
+    private String Email;
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public AdminModel(String username, String password , String email) {
         Username = username;
         Password = password;
+        Email=email;
     }
 
     @Column

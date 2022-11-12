@@ -8,11 +8,11 @@ public class Trip {
 
 
     public Trip(Long tripid, String startTime, String endTime, String toStation, String fromStation) {
-        Tripid = tripid;
-        StartTime = startTime;
-        EndTime = endTime;
-        ToStation = toStation;
-        FromStation = fromStation;
+        this.Tripid = tripid;
+        this.StartTime = startTime;
+        this.EndTime = endTime;
+        this.ToStation = toStation;
+        this.FromStation = fromStation;
     }
 
 
@@ -88,6 +88,13 @@ public class Trip {
     }
 
     public void setFromStation(String FromStation) {
-        FromStation = FromStation;
+        this.FromStation=FromStation;
+    }
+
+    public Trip(String startTime, String endTime, String toStation, String fromStation) {
+        this.StartTime = startTime;
+        this.EndTime = endTime;
+        this.ToStation = toStation;
+       this.FromStation = fromStation;
     }
 }

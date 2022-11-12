@@ -23,6 +23,8 @@ public class AdminComponent {
 
     public void Login(AdminModel adminModel) {
         data.save(adminModel);
+        System.out.print("Logged in");
+
 
     }
 
