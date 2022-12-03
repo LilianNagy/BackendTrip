@@ -34,7 +34,6 @@ public class Admin {
     @GetMapping(path = "/getStation")
     public List<Station> GetStation() {
 
-
         return stationComp.GetStation();
     }
 
