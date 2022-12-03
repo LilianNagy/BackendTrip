@@ -33,6 +33,7 @@ public class Admin {
     ///STATION CRUD FUNCTIONS
     @GetMapping(path = "/getStation")
     public List<Station> GetStation() {
+
         return stationComp.GetStation();
     }
 

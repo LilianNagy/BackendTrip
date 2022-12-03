@@ -16,6 +16,12 @@ import java.util.List;
 @RestController
 public class DemoApplication {
 
+	@GetMapping(path = "/welcome")
+	public String Welcome(){
+
+		return ("Hello");
+	}
+
 	public static void main(String[] args) {
 
 		SpringApplication.run(DemoApplication.class, args);
